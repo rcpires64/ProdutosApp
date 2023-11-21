@@ -1,0 +1,39 @@
+﻿Instruções para Rodar o AppProdutos
+
+1ª Etapa: Criação do Banco de Dados
+-----------------------------------
+Cd ProdutosApp
+Dotnet clean
+Dotnet build
+Dotnet ef migrations add CreateDB
+Dotnet ef database update
+
+
+2ª Etapa: Criação do Primeiro Usuário
+-------------------------------------
+1. Rode a aplicação
+2. Clique nos menus Usuário e Produtos, veja que foi bloqueado o acesso enquanto não houver usuário logado
+3. Na barra de endereços digite ao final: /Usuarios/Create
+4. Crie o usuário
+5. Faça o login
+
+Informações Gerais de Utilização
+--------------------------------
+1. Foram criados os menus Login, Usuário e Produtos
+2. Para permitir os testes necessários, não foi incluído bloqueio de login a nivel de endereço 
+	(ex.: /Usuarios/Create), mas, para tanto, bastaria incluir nas ações a mesma restrição colocada no index
+	do Usuário e do Produtos
+3. Faça o login e navegue nos menus Usuário e Produtos
+
+
+Outras Informações
+------------------
+1. Todos os termos utilizados na interface do usuário foram traduzidos para o português
+2. Para o produto foi incluído o código EAN que é composto por 13 algarismos
+3. Foi incluída validação do dígito verificador do EAN
+4. Botões padronizados com as seguintes cores
+	Novo = warning
+	Editar/Criar = primary
+	Detalhes = info
+	Apagar = danger
+	Voltar = success

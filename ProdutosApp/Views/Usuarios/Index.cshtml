@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProdutosApp.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Usuário - Listagem</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-warning">Novo Usuário</a>
+</p>
+<table class="table table-striped"">
+    <thead>
+        <tr class="table-info">
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Tipo</th>
+            <th>Criado em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.UserName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.Type)</td>
+                <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                <td>
+                    <a href="/Usuarios/Edit/@item.Id" class="btn btn-primary">Editar</a> |
+                    <a href="/Usuarios/Details/@item.Id" class="btn btn-info">Detalhes</a> |
+                    <a href="/Usuarios/Delete/@item.Id" class="btn btn-danger">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

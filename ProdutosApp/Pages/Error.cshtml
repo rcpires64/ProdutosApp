@@ -1,0 +1,47 @@
+﻿@page
+@model ProdutosApp.Pages.ErrorModel
+@{
+    ViewData["Title"] = "Error";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="error-page">
+    <h2 class="display-4">Oops! Algo deu errado.</h2>
+
+    <p class="error-message">
+        @Model.Message
+    </p>
+
+    @if (Model.ShowRequestId)
+    {
+        <p class="text-muted">
+            <small>ID do Erro: @Model.RequestId</small>
+        </p>
+    }
+
+    <p>Aqui estão algumas opções de ações a serem tomadas:</p>
+    <ul>
+        <li>
+            <a asp-action="Index" asp-controller="Produtos">Volte para a página inicial</a>
+        </li>
+        <li>
+            <a href="javascript:history.back()">Tente a última ação novamente</a>
+        </li>
+        <li>
+            Se acredita que isso é um erro do sistema, entre em contato com o administrador pelo email <a href="mailto:contato@ProdutosApp.com">contato@ProdutosApp.com</a>
+        </li>
+    </ul>
+</div>
+
+@section Styles {
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li a {
+            color: #007bff;
+        }
+    </style>
+}
